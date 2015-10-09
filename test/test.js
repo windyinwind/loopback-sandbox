@@ -5,8 +5,8 @@ describe('/contact',function(){
     
     describe('#findById',function(){
         it('should fetch opportunities without error',function(done){
-            //var id = 'b735b6a1-7d23-5472-56f7-5063eec7e4a0';
-            var id = 'id to test';
+            //set id to contact id to be test in db
+            var id = 'id to be test';
             Contact.findById(id,{
                 fields: {id: true},
                 include:{
