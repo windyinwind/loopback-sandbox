@@ -1,0 +1,54 @@
+{
+  "name": "contact",
+  "plural": "contacts",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "mysql": {
+      "table": "contacts"
+    }
+  },
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string",
+      "index": true,
+      "mysql": {
+        "columnName": "id"
+      }
+    },
+    "first_name": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "first_name",
+        "dataType": "VARCHAR",
+        "dateLength": 100,
+        "nullable": "Y"
+      }
+    },
+    "last_name": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "last_name",
+        "dataType": "VARCHAR",
+        "dateLength": 100,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "opportunities": {
+      "type": "hasMany",
+      "model": "opportunity",
+      "foreignKey": "contactId",
+      "through": "opportunitycontact"
+    }
+  },
+  "acls": [
+  ],
+  "methods": []
+}

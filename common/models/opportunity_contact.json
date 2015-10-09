@@ -1,0 +1,65 @@
+{
+  "name": "opportunitycontact",
+  "plural": "opportunitycontacts",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "mysql": {
+      "table": "opportunities_contacts"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "index": true,
+      "mysql": {
+        "columnName": "id"
+      }
+    },
+    "contactId": {
+      "type": "string",
+      "index": true,
+      "mysql": {
+        "columnName": "contact_id"
+      }
+    },
+    "opportunityId": {
+      "type": "string",
+      "index": true,
+      "mysql": {
+        "columnName": "opportunity_id"
+      }
+    },
+    "date_modified": {
+      "type": "date",
+      "index": false,
+      "mysql": {
+        "columnName": "date_modified"
+      }
+    },
+    "deleted": {
+      "type": "boolean",
+      "index": false,
+      "mysql": {
+        "columnName": "deleted"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "opportunity": {
+      "type": "belongsTo",
+      "model": "opportunity",
+      "foreignKey": "opportunityId"
+    },
+    "contact": {
+      "type": "belongsTo",
+      "model": "contact",
+      "foreignKey": "contactId"
+    }
+  },
+  "acls": [
+    ],
+  "methods": []
+}
